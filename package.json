@@ -1,0 +1,15 @@
+{
+  "name": "csg-curry",
+  "version": "0.0.1",
+  "description": "A curry interface for CSG operations",
+  "main": "index.js",
+  "peerDependencies": {
+    "@jscad/csg": "0.x"
+  },
+  "repository": "https://github.com/deckar01/csg-curry",
+  "scripts": {
+    "test": "npm install @jscad/csg && node index.js"
+  },
+  "author": "Jared Deckard <jared.deckard@gmail.com>",
+  "license": "MIT"
+}
