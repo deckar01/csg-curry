@@ -11,8 +11,7 @@ function curry(f, arr = []) {
 
 function isFunction(fn) { return typeof fn === 'function' }
 
-const libKeys = ['transformations', 'extrusions']
-libKeys.forEach(libKey => {
+Object.keys(csg).forEach(libKey => {
   Object.keys(csg[libKey]).forEach(libItemKey => {
     csg[libKey]['$' + libItemKey] = curry(csg[libKey][libItemKey])
   })
