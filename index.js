@@ -24,4 +24,6 @@ csg.transformations.$pipeline = (...ops) => {
   })
 }
 
+csg.transformations.$ = csg.transformations.$pipeline;
+
 module.exports = csg
