@@ -1,6 +1,6 @@
 {
   "name": "csg-curry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A curry interface for CSG operations",
   "main": "index.js",
   "peerDependencies": {

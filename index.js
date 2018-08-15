@@ -9,19 +9,19 @@ function curry(f, arr = []) {
   return cf
 }
 
-function isFunction(fn) { return typeof fn === 'function' }
-
 Object.keys(csg).forEach(libKey => {
   Object.keys(csg[libKey]).forEach(libItemKey => {
     csg[libKey]['$' + libItemKey] = curry(csg[libKey][libItemKey])
   })
 })
 
-csg.transformations.$pipeline = function(...ops) {
-  return ops.reverse().reduce(
-    (objects, x) => isFunction(x) ? [x(objects)()] : objects.concat([x]),
-    []
-  )
+csg.transformations.$pipeline = (...ops) => {
+  return ops.reverse().reduce((objects, x) => {
+    if (typeof x === 'function') return x(objects)()
+    if (!objects) return x
+    if (objects.length) return [x].concat(objects)
+    return [x, objects]
+  })
 }
 
 module.exports = csg
